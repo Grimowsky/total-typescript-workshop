@@ -1,5 +1,9 @@
-const shoppingCart = {
-  items: [],
+interface shoppingCart {
+    items: string[];
+}
+
+const shoppingCart: shoppingCart = {
+    items: [],
 };
 
 console.log(shoppingCart.items);
