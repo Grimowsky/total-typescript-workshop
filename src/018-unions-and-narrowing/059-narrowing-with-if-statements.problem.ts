@@ -1,19 +1,21 @@
 import { expect, it } from "vitest";
 
 function validateUsername(username: string | null): boolean {
-  // Rewrite this function to make the error go away
-  return username.length > 5;
+    // Rewrite this function to make the error go away
+    if (typeof username === "string") {
+        return username.length > 5;
+    }
 
-  return false;
+    return false;
 }
 
 it("should return true for valid usernames", () => {
-  expect(validateUsername("Matt1234")).toBe(true);
+    expect(validateUsername("Matt1234")).toBe(true);
 
-  expect(validateUsername("Alice")).toBe(false);
-  expect(validateUsername("Bob")).toBe(false);
+    expect(validateUsername("Alice")).toBe(false);
+    expect(validateUsername("Bob")).toBe(false);
 });
 
 it("Should return false for null", () => {
-  expect(validateUsername(null)).toBe(false);
+    expect(validateUsername(null)).toBe(false);
 });
