@@ -1,23 +1,23 @@
 type ButtonType = "button" | "submit" | "reset";
 
 type ButtonAttributes = {
-  cancel: {
-    type: ButtonType;
-  };
-  confirm: {
-    type: ButtonType;
-  };
+    cancel: {
+        type: ButtonType;
+    };
+    confirm: {
+        type: ButtonType;
+    };
 };
 
 const modifyButtons = (attributes: ButtonAttributes) => {};
 
 const buttonAttributes = Object.freeze({
-  cancel: {
-    type: "button",
-  },
-  confirm: {
-    type: "button",
-  },
+    cancel: Object.freeze({
+        type: "button",
+    }),
+    confirm: Object.freeze({
+        type: "button",
+    }),
 });
 
 modifyButtons(buttonAttributes);
