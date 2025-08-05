@@ -1,20 +1,22 @@
 interface User {
-  id: number;
-  name: string;
+    id: number;
+    name: string;
 }
 
 const users = [
-  {
-    name: "Waqas",
-  },
-  {
-    name: "Zain",
-  },
+    {
+        name: "Waqas",
+    },
+    {
+        name: "Zain",
+    },
 ];
 
-const usersWithIds: User[] = users.map((user, index) => ({
-  ...user,
-  id: index,
-  // @ts-expect-error
-  age: 30,
-}));
+const usersWithIds: User[] = users.map(
+    (user, index): User => ({
+        ...user,
+        id: index,
+        // @ts-expect-error
+        age: 30,
+    }),
+);

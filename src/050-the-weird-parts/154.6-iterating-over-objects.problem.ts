@@ -1,20 +1,26 @@
 import { expect, it, vitest } from "vitest";
 
 interface User {
-  id: number;
-  name: string;
+    id: number;
+    name: string;
 }
 
-function printUser(user: User) {}
+function printUser(user: User) {
+    const keys = Object.keys(user);
+
+    for (const key of keys) {
+        console.log(user[key as keyof User]);
+    }
+}
 
 it("Should log all the keys of the user", () => {
-  const consoleSpy = vitest.spyOn(console, "log");
+    const consoleSpy = vitest.spyOn(console, "log");
 
-  printUser({
-    id: 1,
-    name: "Waqas",
-  });
+    printUser({
+        id: 1,
+        name: "Waqas",
+    });
 
-  expect(consoleSpy).toHaveBeenCalledWith(1);
-  expect(consoleSpy).toHaveBeenCalledWith("Waqas");
+    expect(consoleSpy).toHaveBeenCalledWith(1);
+    expect(consoleSpy).toHaveBeenCalledWith("Waqas");
 });

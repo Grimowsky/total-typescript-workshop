@@ -1,4 +1,4 @@
-const acceptAnythingExceptNullOrUndefined = (input) => {};
+const acceptAnythingExceptNullOrUndefined = (input: {}) => {};
 
 acceptAnythingExceptNullOrUndefined("hello");
 acceptAnythingExceptNullOrUndefined(42);
@@ -11,10 +11,10 @@ acceptAnythingExceptNullOrUndefined(/foo/);
 acceptAnythingExceptNullOrUndefined(new Error("foo"));
 
 acceptAnythingExceptNullOrUndefined(
-  // @ts-expect-error
-  null,
+    // @ts-expect-error
+    null,
 );
 acceptAnythingExceptNullOrUndefined(
-  // @ts-expect-error
-  undefined,
+    // @ts-expect-error
+    undefined,
 );
