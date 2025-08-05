@@ -2,62 +2,62 @@ import { Equal, Expect } from "@total-typescript/helpers";
 
 // CODE
 
-const isProblemOrSolution = (filename: string): boolean => {
-  const splitFilename: string[] = filename.split(".");
+const isProblemOrSolution = (filename: string) => {
+    const splitFilename = filename.split(".");
 
-  const finalIndex: number = splitFilename.length - 1;
+    const finalIndex = splitFilename.length - 1;
 
-  const extension: string | undefined = splitFilename[finalIndex];
+    const extension = splitFilename[finalIndex];
 
-  const isProblem: boolean = extension === "problem";
+    const isProblem = extension === "problem";
 
-  const isSolution: boolean = extension === "solution";
+    const isSolution = extension === "solution";
 
-  return isProblem || isSolution;
+    return isProblem || isSolution;
 };
 
 // TESTS
 
 type test1 = Expect<
-  Equal<typeof isProblemOrSolution, (filename: string) => boolean>
+    Equal<typeof isProblemOrSolution, (filename: string) => boolean>
 >;
 
 // CODE
 
 const users: {
-  name: string;
+    name: string;
 }[] = [
-  {
-    name: "Waqas",
-  },
-  {
-    name: "Zain",
-  },
+    {
+        name: "Waqas",
+    },
+    {
+        name: "Zain",
+    },
 ];
 
 const usersWithIds: {
-  id: number;
-  name: string;
+    id: number;
+    name: string;
 }[] = users.map(
-  (
-    user: {
-      name: string;
-    },
-    index: number,
-  ) => ({
-    ...user,
-    id: index,
-  }),
+    (
+        user: {
+            name: string;
+        },
+        index: number,
+    ) => ({
+        ...user,
+        id: index,
+    }),
 );
 
 // TESTS
 
 type test2 = Expect<
-  Equal<
-    typeof usersWithIds,
-    {
-      id: number;
-      name: string;
-    }[]
-  >
+    Equal<
+        typeof usersWithIds,
+        {
+            id: number;
+            name: string;
+        }[]
+    >
 >;
